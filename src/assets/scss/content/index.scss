@@ -1,0 +1,86 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+
+
+$palette-content-title: $x-color-masala;
+$title-font-size: 3.6em;
+
+.content {
+  flex-grow: 1;
+  // .content__body
+  &__body {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    @include breakpoint(md) {
+      padding: 0 6rem;
+    }
+    transition: 0.3s ease all;
+    &_center {
+
+    }
+  }
+
+  &__header {
+    display: table;
+
+    &_center {
+      margin: 0 auto;
+    }
+  }
+
+  // .content__icon
+  &__icon {
+    padding:0 0 0 60px;
+    margin-bottom: 0.15em;
+
+    &_account {
+      background: var(--img_sprite) no-repeat;
+      padding:0 0 0 70px;
+    }
+
+    &_films {
+      background: var(--img_sprite) no-repeat 0px -705px;
+    }
+
+    &_schedule {
+      background: var(--img_sprite) no-repeat 0px -5px;
+    }
+
+    &_about {
+      background: var(--small_sprite) no-repeat;
+    }
+
+    &_soon {
+      background: var(--img_sprite) no-repeat 0px -61px;
+    }
+
+    &_contacts {
+      padding:0 0 14px 80px;
+      background: var(--small_sprite) no-repeat 0px -67px;
+    }
+
+
+  }
+
+  &__title {
+    display: table-cell;
+    text-transform:uppercase;
+    font-family: $font-family-secondary;
+    color: $palette-content-title;
+    letter-spacing:0.03em;
+    @include font-size(1em, 4em);
+
+    &_2em-4em {
+      @include font-size(2em, 4em);
+    }
+
+    &_3em-4em {
+      @include font-size(3em, 4em);
+    }
+
+    &_4em-4em {
+      @include font-size(4em, 4em);
+    }
+  }
+}
