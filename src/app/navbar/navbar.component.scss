@@ -1,0 +1,100 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+
+$headerHeight: 50px;
+$borderRadius: 12px;
+
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+.header {
+  font-family: $font-family-tertiary;
+
+  background: $palette-secondary;
+  width: 100%;
+  height: $headerHeight;
+  padding: 0 1.5rem;
+  @include breakpoint(md) {
+    padding: 0 2rem;
+  }
+  transition: 0.3s ease all;
+  &__content {
+    overflow: hidden;
+    color: $palette-white;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+}
+
+.nav {
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #4e6588;
+  backdrop-filter: blur(2px);
+  transition: 0.3s ease transform;
+
+  @include breakpoint(md) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: transparent;
+    width: auto;
+    height: 100%;
+  }
+
+  .nav__pages {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(md) {
+      flex-direction: row;
+    }
+
+    .nav-page {
+      &__title {
+        text-decoration: none;
+        color: inherit;
+        padding: 0 1.4vw;
+        white-space: nowrap;
+        transition: 0.3s ease all;
+
+        font-weight: bold;
+
+        &:hover {
+          color: $palette-black
+        }
+      }
+      &--active {
+        color: black;
+      }
+    }
+  }
+}
+
+.logo { }
+
+.toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease all;
+  position: relative;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
