@@ -1,6 +1,7 @@
 {
   "name": "cinema",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Famouse",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
