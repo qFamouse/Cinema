@@ -1,0 +1,23 @@
+$max-base-scale-width: 75;
+$base-scale: calc(100vw / #{$max-base-scale-width}); // alternative: 5.333vw
+
+@mixin font-size($min, $max, $improve-size : 4) { // 1em/4em
+  font-size: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+}
+
+@mixin padding-size($min, $max, $improve-size : 2) { // 1em/2em
+  padding: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+}
+
+@mixin margin-size($min, $max, $improve-size : 2) { // 0.5em/2em
+  margin: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+}
+
+@mixin border-radius($min, $max, $improve-size : 3) { // 1em/3em
+  border-radius: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+}
+
+@mixin image-size($min, $max, $improve-size : 4) { // 1em/3em
+  width: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+  height: MAX(#{$min}, MIN(#{$max}, calc(#{$base-scale} * #{$improve-size})));
+}
