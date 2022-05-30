@@ -3,7 +3,15 @@ import {CommonModule} from "@angular/common";
 
 
 import {
-  ApiService, MovieService
+  ApiService,
+  BookingService,
+  HallsService,
+  MovieService,
+  PlacesService,
+  ReviewsService,
+  SeancesService,
+  TicketsService,
+  UsersService
 } from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpTokenInterceptor} from "./interceptors";
@@ -15,7 +23,14 @@ import {HttpTokenInterceptor} from "./interceptors";
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
     ApiService,
-    MovieService
+    BookingService,
+    HallsService,
+    MovieService,
+    PlacesService,
+    ReviewsService,
+    SeancesService,
+    TicketsService,
+    UsersService
   ],
   declarations: []
 })
