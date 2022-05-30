@@ -1,6 +1,6 @@
 import {ApiService} from "./api.service";
 import {map, Observable} from "rxjs";
-import {Movie} from "../models/movie.model";
+import {Movie} from "../models/movies.model";
 import {Injectable} from "@angular/core";
 
 const movies : string = 'movies';
