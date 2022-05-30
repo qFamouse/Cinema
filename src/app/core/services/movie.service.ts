@@ -10,7 +10,7 @@ export class MovieService {
 
   constructor(private apiService: ApiService) {}
 
-  getById(slug: number): Observable<Movie> {
-    return this.apiService.get(`/${movies}/${slug}`)
+  getById(slug: any): Observable<Movie> {
+    return this.apiService.get(`/${movies}/${slug}`);
   }
 }
