@@ -2,8 +2,12 @@
 
 $palette-footer-text : $x-color-nomad;
 
-.footer {
+:host {
   flex-shrink: 0;
+}
+
+.footer {
+
   background: $palette-footer;
   width: 100%;
   padding: 0 3rem;
