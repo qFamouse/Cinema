@@ -6,7 +6,7 @@ import {User} from "../models/user.model";
 const users : string = 'users';
 
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(private apiService: ApiService) {}
 
   getAll(): Observable<User[]> {

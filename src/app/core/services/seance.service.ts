@@ -6,7 +6,7 @@ import {Seance} from "../models/seance.model";
 const seances : string = 'seances';
 
 @Injectable()
-export class SeancesService {
+export class SeanceService {
   constructor(private apiService: ApiService) {}
 
   getAll(): Observable<Seance[]> {

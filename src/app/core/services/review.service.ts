@@ -6,7 +6,7 @@ import {Review} from "../models/review.service";
 const reviews : string = 'reviews';
 
 @Injectable()
-export class ReviewsService {
+export class ReviewService {
   constructor(private apiService: ApiService) {}
 
   getAll(): Observable<Review[]> {

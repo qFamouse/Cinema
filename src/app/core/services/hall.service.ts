@@ -6,7 +6,7 @@ import {Hall} from "../models/hall.model";
 const halls : string = 'halls';
 
 @Injectable()
-export class HallsService {
+export class HallService {
 
   constructor(private apiService: ApiService) {}
 

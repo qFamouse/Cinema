@@ -6,7 +6,7 @@ import {Ticket} from "../models/ticket.model";
 const tickets : string = 'tickets';
 
 @Injectable()
-export class TicketsService {
+export class TicketService {
   constructor(private apiService: ApiService) {}
 
   getAll(): Observable<Ticket[]> {

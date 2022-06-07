@@ -6,7 +6,7 @@ import {Place} from "../models/place.service";
 const places : string = 'places';
 
 @Injectable()
-export class PlacesService {
+export class PlaceService {
   constructor(private apiService: ApiService) {}
 
   getAll(): Observable<Place[]> {
