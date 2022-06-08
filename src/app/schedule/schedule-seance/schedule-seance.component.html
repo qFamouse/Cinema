@@ -1,18 +1,19 @@
-<div class="seance" >
-  <table class="seance__header" (click)="showAboutSeance = showAboutSeance!=true">
+<app-schedule-booking *ngIf="showModalBooking" (onModalClose)="handleModalOpenClose()"></app-schedule-booking>
+<div class="seance">
+  <table class="seance__header">
     <tr class="seance__content">
-      <td class="seance-content__item">{{convertDateToSeanceDate(seance.date)}}</td>
-      <td class="seance-content__item">{{seance.movie.title}}</td>
-      <td class="seance-content__item">{{seance.movie.genre}}</td>
-      <td class="seance-content__item">{{seance.movie.ageLimit}}+</td>
+      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{convertDateToSeanceDate(seance.date)}}</td>
+      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.title}}</td>
+      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.genre}}</td>
+      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.ageLimit}}+</td>
       <td class="seance-content__item">
-        <button class="seance-content__item-button">
+        <button class="seance-content__item-button" (click)="showModalBooking = showModalBooking!=true">
           book
         </button>
       </td>
     </tr>
   </table>
-  <div *ngIf="!showAboutSeance" class="film-description film-description_active">
+  <div *ngIf="showAboutSeance" class="film-description film-description_active">
     <div class="film-description__poster">
       <a class="film-description__poster-link" href="#" title="{{seance.movie.title}}">
         <img class="film-description__poster-image" src="{{poster}}" alt="{{seance.movie.title}}">

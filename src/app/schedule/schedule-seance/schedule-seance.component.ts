@@ -11,8 +11,9 @@ export class ScheduleSeanceComponent implements OnInit {
   @Input() seance: Seance;
 
   showAboutSeance : boolean = false;
-
+  showModalBooking : boolean = false;
   poster: any;
+
 
   constructor(private movieService: MovieService) { }
 
@@ -38,5 +39,11 @@ export class ScheduleSeanceComponent implements OnInit {
       reader.readAsDataURL(image);
     }
   }
+
+  handleModalOpenClose() {
+    this.showModalBooking = !this.showModalBooking;
+  }
+
+
 
 }

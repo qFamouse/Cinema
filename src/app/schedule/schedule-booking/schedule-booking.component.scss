@@ -1,0 +1,172 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+@import "src/assets/scss/content";
+
+$palette-booking-background: $x-color-shark;
+$palette-booking-occupied: $x-color-oslo-gray;
+$palette-booking-selected: $x-color-white;
+$palette-booking-free: $x-color-dodger-blue;
+$palette-booking-vip: $x-color-tulip-tree;
+
+.booking {
+  max-width: 768px;
+  background: $palette-booking-background;
+  // .booking__hall
+  &__hall {
+    border-spacing: 1em 1em;
+  }
+
+  // .booking__row
+  &__row {
+  }
+
+  // .booking__block
+  &__block {
+    color: #d0d1d1;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 5em;
+  }
+
+  // .booking__seat
+  &__seat {
+    background: $palette-booking-free;
+
+    // .booking__seat_occupied
+    &_occupied {
+      border: 7px solid $palette-booking-background;
+      background: $palette-booking-occupied;
+    }
+
+    // .booking__seat_selected
+    &_selected {
+      box-shadow:
+        0 0 0 4px $palette-booking-background,
+        0 0 0 7px $palette-booking-free;
+      background: $palette-booking-selected;
+    }
+
+    // .booking__seat_vip
+    &_vip {
+      background: $palette-booking-vip;
+    }
+
+    &:not(&_occupied) {
+      &:hover {
+        box-shadow:
+          0 0 0 4px $palette-booking-background,
+          0 0 0 7px $palette-booking-free;
+      }
+    }
+  }
+}
+
+
+.modal {
+  /* modal container fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* z-index must be higher than .jw-modal-background */
+  z-index: 999;
+
+  /* enables scrolling for tall modals */
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__close {
+    position: absolute;
+    top: 2em;
+    right: 1.5em;
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 1000;
+
+    &__path {
+      fill: white;
+      fill-rule: evenodd;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+        //fill: gray;
+      }
+    }
+  }
+
+  $color-alpha: #b78846;
+  &__body {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background-color: rgba($palette-booking-background, 1);
+    padding: 5px;
+    border: 2px solid $color-alpha;
+    &:before, &:after {
+      content: "•";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      color: $color-alpha;
+      border: 2px solid $color-alpha;
+      line-height: 12px;
+      top: 5px;
+      text-align: center;
+    }
+    &:before {
+      left: 5px;
+    }
+    &:after {
+      right: 5px;
+    }
+  }
+  &__content {
+    position: relative;
+    border: 2px solid $color-alpha;
+    padding: 40px;
+    &:before, &:after {
+      content: "•";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      color: $color-alpha;
+      border: 2px solid $color-alpha;
+      line-height: 12px;
+      bottom: -2px;
+      text-align: center;
+    }
+    &:before {
+      left: -2px;
+    }
+    &:after {
+      right: -2px;
+    }
+  }
+}
+
+.modal-background {
+  /* modal background fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* semi-transparent black  */
+  background-color: #000;
+  opacity: 0.75;
+
+  /* z-index must be below .jw-modal and above everything else  */
+  z-index: 900;
+}

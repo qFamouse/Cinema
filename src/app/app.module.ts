@@ -9,6 +9,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-seance.component';
+import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-booking.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-sea
     NavbarComponent,
     FooterComponent,
     ScheduleComponent,
-    ScheduleSeanceComponent
+    ScheduleSeanceComponent,
+    ScheduleBookingComponent
   ],
   imports: [
     BrowserModule,
