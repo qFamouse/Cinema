@@ -13,4 +13,8 @@ export class MovieService {
   getById(slug: any): Observable<Movie> {
     return this.apiService.get(`/${movies}/${slug}`);
   }
+
+  getPosterById(slug: any): Observable<Blob> {
+    return this.apiService.getImage(`/${movies}/posters/${slug}`);
+  }
 }

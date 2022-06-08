@@ -15,7 +15,12 @@ export class ApiService {
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return  this.http.get(`${environment.api_url}${path}`, { params })
+    return this.http.get(`${environment.api_url}${path}`, { params })
+      .pipe(catchError(this.formatErrors));
+  }
+
+  getImage(path: string): Observable<Blob> {
+    return this.http.get(`${environment.api_url}${path}`, { responseType: 'blob' })
       .pipe(catchError(this.formatErrors));
   }
 
