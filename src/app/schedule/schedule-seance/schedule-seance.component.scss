@@ -1,0 +1,214 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+@import "src/assets/scss/content";
+
+$cell-size: 23px 13px;
+
+$palette-schedule-title: $x-color-gray-nickel;
+$palette-schedule-background: $x-color-wild-sand;
+$palette-schedule-border: $x-color-mercury;
+$palette-schedule-button: $x-color-janna;
+
+$palette-film-title: $x-color-storm-dust;
+$palette-film-original-title: $x-color-silver-sand;
+
+
+.seance {
+  // .seance__header
+  &__header {
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid $palette-schedule-border;
+    border-top:0 none;
+    text-align: left;
+
+    table-layout: fixed;
+
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  // .seance__content
+  &__content {
+    background: $palette-white;
+  }
+
+  &:last-child {
+    margin-bottom: 3em;
+  }
+}
+
+.seance-content {
+  // .seance-content__item
+  &__item {
+    padding: $cell-size;
+
+    //&:last-child {
+    //  text-align: right;
+    //}
+
+    // HIDE AGE LIMIT //
+    &:nth-child(4) {
+      display: none;
+    }
+
+    @include breakpoint(sm) {
+      &:nth-child(4) {
+        display: table-cell;
+      }
+    }
+  }
+
+  // .seance-content__item-button
+  &__item-button {
+    width: 100%;
+    border: none;
+    color: black;
+    text-decoration: none;
+    user-select: none;
+    background: $palette-schedule-button;
+    padding: .7em 0;
+    outline: none;
+
+    &:hover {
+      background: $palette-primary;
+      color: white;
+    }
+  }
+}
+
+.film-description {
+  transition: 0.3s ease transform;
+  display: none;
+  &_active {
+    display: flex;
+  }
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(sm) {
+    flex-direction: row;
+    align-items: start;
+  }
+  background: $palette-schedule-background;
+  border:1px solid $palette-schedule-border;
+
+  padding: 1.5em;
+
+
+  // .film-description__poster
+  &__poster {
+
+  }
+
+  // .film-description__poster-link
+  &__poster-link {
+
+  }
+
+  // .film-description__poster-image
+  &__poster-image {
+    border: 11px solid white;
+    box-shadow: 0 0 5px;
+    color: $palette-primary;
+    margin-right: 10px;
+
+    width: 194px;
+    height: 277px;
+  }
+
+  // .film-description__content
+  &__content {
+    flex-grow: 1;
+    font-family: $font-family-secondary;
+  }
+}
+
+.film-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(sm) {
+    align-items: start;
+  }
+  @include breakpoint(md) {
+    display: inline;
+  }
+  // .film-info__hud
+  &__hud {
+    @include breakpoint(sm) {
+      float: right;
+    }
+    color: $palette-schedule-title;
+    font-size: 1.3em;
+  }
+
+  // .film-info__hud-duration
+  &__hud-duration {
+    padding:0 5px 0 30px;
+    background:var(--img_sprite) no-repeat -9px -477px;
+  }
+
+  // .film-info__hud-age-limit
+  &__hud-age-limit {
+    border: 2px solid $palette-schedule-title;
+  }
+
+  // .film-info__title
+  &__title {
+    color:$palette-film-title;
+    font-weight: 400;
+    font-size:1.4285em;
+    margin-bottom: 0.7em;
+  }
+
+  // .film-info__source-title
+  &__source-title {
+    color:$palette-film-original-title;
+    font-weight: 400;
+    font-size:1.4285em;
+    margin-bottom: 0.7em;
+  }
+
+  // .film-info__year-country-genre
+  &__year-country-genre {
+    margin-bottom: 0.4em;
+  }
+
+  // .film-info__director
+  &__director {
+    margin-bottom: 0.4em;
+
+  }
+
+  // .film-info__actors
+  &__actors {
+    margin-bottom: 0.4em;
+    display: none;
+    @include breakpoint(sm) {
+      display: block;
+    }
+  }
+
+  // .film-info__about
+  &__about {
+    font-family: $font-family-primary;
+    font-size: 1em;
+    font-width: 400;
+    text-transform: none;
+    color: $palette-secondary;
+
+    padding-right: 22px;
+    background: var(--alllink) no-repeat right 3px;
+    text-decoration:underline;
+    letter-spacing:normal;
+
+    &:hover {
+      color: $palette-primary;
+      text-decoration:none;
+      background-position:right -17px;
+    }
+  }
+}

@@ -8,13 +8,15 @@ import { FooterComponent } from './footer/footer.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
+import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-seance.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    ScheduleSeanceComponent
   ],
   imports: [
     BrowserModule,
