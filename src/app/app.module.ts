@@ -10,6 +10,7 @@ import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-seance.component';
 import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-booking.component';
+import { SoonComponent } from './soon/soon.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-b
     FooterComponent,
     ScheduleComponent,
     ScheduleSeanceComponent,
-    ScheduleBookingComponent
+    ScheduleBookingComponent,
+    SoonComponent
   ],
   imports: [
     BrowserModule,

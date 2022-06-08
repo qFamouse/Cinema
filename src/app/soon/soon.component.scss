@@ -1,0 +1,102 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+@import "src/assets/scss/content";
+
+$palette-soon-age-limit: $x-color-gray-nickel;
+$palette-soon-title: $x-color-gray-nickel;
+
+
+.soon {
+  // .soon__films
+  &__films {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  // .soon__item
+  &__item {
+    width: 250px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 2em;
+    }
+  }
+
+  // .soon__item--poster
+  &__item--poster {
+    border: 11px solid white;
+    background: $palette-white;
+    margin-bottom: 1em;
+
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
+    //position:absolute;
+    ///*left:10px;
+    //top:10px;*/
+    //left:8px;
+    //top:8px;
+    //overflow:hidden;
+    //
+    //width:208px;
+    //height:290px;
+    //border-color:#e3e3e3;
+  }
+
+  // .soon__item--image
+  &__item--image {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+  }
+
+  // .soon__item--image-link
+  &__item--image-link {
+  }
+
+  // .soon__item--desc
+  &__item--desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  // .soon__item--premiere-date
+  &__item--premiere-date {
+    text-align:center;
+    font:400 1.7em/1.5em "Roboto Condensed";
+    color:#e45b5e;
+
+  }
+
+  // .soon__item--age-limit
+  &__item--age-limit {
+    border: 3px solid $palette-soon-title;
+    color: $palette-soon-age-limit;
+    font-size: 1.6em;
+    height: 100%;
+  }
+
+  // .soon__item--title
+  &__item--title {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4em;
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    text-transform:uppercase;
+    text-align:left;
+  }
+
+  // .soon__item--english-title
+  &__item--english-title {
+    color:#484a4d;
+  }
+
+  // .soon__item--original-title
+  &__item--original-title {
+    color:#bbb;
+  }
+}
