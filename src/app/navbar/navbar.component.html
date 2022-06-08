@@ -1,13 +1,33 @@
 <header class="header">
   <div class="header__content">
-    <h2 class="logo">UniKino</h2>
+    <h2 class="logo" (click)="router.navigateByUrl('/')">UniKino</h2>
     <nav class="nav">
       <ul class="nav__pages">
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">ABOUT</a></li>
-        <li class="nav__page nav-page"><a class="nav-page__title nav-page--active" href="#">SCHEDULE</a></li>
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">SOON</a></li>
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">FILMS</a></li>
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">CONTACTS</a></li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/about')"
+             [class.nav-page--active] = "router.url === '/about'">ABOUT</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/')"
+             [class.nav-page--active] = "router.url === '/'">SCHEDULE</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/soon')"
+             [class.nav-page--active] = "router.url === '/soon'">SOON</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/films')"
+             [class.nav-page--active] = "router.url === '/films'">FILMS</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/contacts')"
+             [class.nav-page--active] = "router.url === '/contacts'">CONTACTS</a>
+        </li>
       </ul>
     </nav>
     <nav class="nav">

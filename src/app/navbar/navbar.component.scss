@@ -8,6 +8,12 @@ $spacing-md: 16px;
 $spacing-lg: 32px;
 
 .header {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   font-family: $font-family-tertiary;
 
   background: $palette-secondary;
@@ -75,7 +81,8 @@ $spacing-lg: 32px;
         font-weight: bold;
 
         &:hover {
-          color: $palette-black
+          color: $palette-black;
+          cursor: pointer;
         }
       }
       &--active {
@@ -85,7 +92,9 @@ $spacing-lg: 32px;
   }
 }
 
-.logo { }
+.logo {
+  cursor: pointer;
+}
 
 .toggle {
   cursor: pointer;
