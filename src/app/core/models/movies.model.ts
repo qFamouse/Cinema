@@ -3,12 +3,13 @@ export interface Movie {
   title: string,
   genre: string,
   duration: number,
+  poster: any,
   ageLimit: number,
   date: Date,
   country: string,
   director: string,
   actors: string,
   synopsis: string,
-  start_rental_date: Date,
-  end_rental_date: Date
+  startRentalDate: Date,
+  endRentalDate: Date
 }

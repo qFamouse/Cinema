@@ -17,4 +17,26 @@ export class MovieService {
   getPosterById(slug: any): Observable<Blob> {
     return this.apiService.getImage(`/${movies}/posters/${slug}`);
   }
+
+  getSoon(): Observable<Movie[]> {
+    return this.apiService.get(`/${movies}/soon`)
+      .pipe(map(movies => {
+        movies.forEach(movie => {
+          movie.poster = null;
+          this.getPosterById(movie.id)
+            .subscribe(poster => {
+              let reader = new FileReader();
+              reader.addEventListener("load", () => {
+                movie.poster = reader.result;
+              }, false);
+
+              if (poster) {
+                reader.readAsDataURL(poster);
+              }
+            })
+        })
+
+        return movies;
+      }))
+  }
 }
