@@ -12,6 +12,7 @@ import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-sea
 import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-booking.component';
 import { SoonComponent } from './soon/soon.component';
 import { AboutComponent } from './about/about.component';
+import {ContactsComponent} from "./contacts/contacts.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     ScheduleSeanceComponent,
     ScheduleBookingComponent,
     SoonComponent,
-    AboutComponent
+    AboutComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
