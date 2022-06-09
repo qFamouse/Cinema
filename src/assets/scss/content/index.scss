@@ -74,6 +74,10 @@ $title-font-size: 3.6em;
     letter-spacing:0.03em;
     @include font-size(1em, 4em);
 
+    &_3em-3and5em {
+      @include font-size(3em, 3.5em);
+    }
+
     &_2em-4em {
       @include font-size(2em, 4em);
     }

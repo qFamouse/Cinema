@@ -1,0 +1,38 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+@import "src/assets/scss/content";
+
+.about {
+
+}
+
+.sentences {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // .sentences__item
+  &__item {
+    margin-bottom: 1em;
+    &:nth-child(3) {
+      align-self: center;
+    }
+  }
+
+  // .sentences__item--text
+  &__item--text {
+    font-family: $font-family-secondary;
+    font-size: 1.1em;
+  }
+
+  // .sentences__item--image
+  &__item--image {
+    width: 100%;
+    @include breakpoint(xl) {
+      width: auto;
+    }
+
+    border: 11px solid white;
+    box-shadow: 0 0 5px;
+    margin-right: 10px;
+  }
+}

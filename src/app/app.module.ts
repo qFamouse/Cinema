@@ -11,6 +11,7 @@ import {SharedModule} from "./shared/shared.module";
 import { ScheduleSeanceComponent } from './schedule/schedule-seance/schedule-seance.component';
 import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-booking.component';
 import { SoonComponent } from './soon/soon.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SoonComponent } from './soon/soon.component';
     ScheduleComponent,
     ScheduleSeanceComponent,
     ScheduleBookingComponent,
-    SoonComponent
+    SoonComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
