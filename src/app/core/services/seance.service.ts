@@ -31,11 +31,11 @@ export class SeanceService {
           seance.date = new Date(seance.date);
           seance.movie.date = new Date(seance.movie.date);
 
-          let splitDuration = seance.movie.duration.toString().split(':');
-          seance.movie.duration = new Date(0, 0, 0,
-            parseInt(splitDuration[0]) || 0,
-            parseInt(splitDuration[1]) || 0,
-            parseInt(splitDuration[2]) || 0, 0);
+          // let splitDuration = seance.movie.duration.toString().split(':');
+          // seance.movie.duration = new Date(0, 0, 0,
+          //   parseInt(splitDuration[0]) || 0,
+          //   parseInt(splitDuration[1]) || 0,
+          //   parseInt(splitDuration[2]) || 0, 0);
         })
       })
 

@@ -44,6 +44,8 @@ export class ScheduleSeanceComponent implements OnInit {
     this.showModalBooking = !this.showModalBooking;
   }
 
-
+  ConvertMinutesToHHmm(minutes: number): string {
+    return new Date(minutes * 60 * 1000).toISOString().substring(11, 16);
+  }
 
 }

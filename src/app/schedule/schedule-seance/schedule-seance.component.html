@@ -13,7 +13,7 @@
       </td>
     </tr>
   </table>
-  <div *ngIf="showAboutSeance" class="film-description film-description_active">
+  <div *ngIf="!showAboutSeance" class="film-description film-description_active">
     <div class="film-description__poster">
       <a class="film-description__poster-link" href="#" title="{{seance.movie.title}}">
         <img class="film-description__poster-image" src="{{poster}}" alt="{{seance.movie.title}}">
@@ -22,7 +22,7 @@
     <div class="film-description__content">
       <div class="film-info">
         <div class="film-info__hud">
-          <span class="film-info__hud-duration">{{seance.movie.duration.getMinutes()}} min. / {{seance.movie.duration.toTimeString().substring(0, 5)}}</span>
+          <span class="film-info__hud-duration">{{seance.movie.duration}} min. / {{ConvertMinutesToHHmm(seance.movie.duration)}}</span>
           <span class="film-info__hud-age-limit">{{seance.movie.ageLimit}}+</span>
         </div>
         <h3 class="film-info__title">{{seance.movie.title}}</h3>
