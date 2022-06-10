@@ -1,0 +1,34 @@
+<main class="content">
+  <div class="content__body">
+    <div class="content__header content__header_center">
+      <h1 class="content__title content__title_3em-3and5em content__title_center content__icon content__icon_account">{{title}}</h1>
+    </div>
+    <div class="login">
+      <form [formGroup]="authForm" (ngSubmit)="submitForm()" class="form">
+        <div>
+          <div class="form__item" *ngIf="authType == 'register'">
+            <input class="form__item--field" type="text" placeholder="Email" formControlName="email">
+          </div>
+          <div class="form__item">
+            <input class="form__item--field" type="text" placeholder="Login" formControlName="login">
+          </div>
+          <div class="form__item" *ngIf="authType == 'register'">
+            <input class="form__item--field" type="text" placeholder="Name" formControlName="firstName">
+          </div>
+          <div class="form__item" *ngIf="authType == 'register'">
+            <input class="form__item--field" type="date" placeholder="Birthday" formControlName="birthday">
+          </div>
+          <div class="form__item">
+            <input class="form__item--field" type="password" placeholder="Password" formControlName="password">
+          </div>
+          <div class="form__item form__item--error-text form__item_center">
+            <p>{{error.message}}</p>
+          </div>
+          <div class="form__item form__item_center">
+            <button class="form__item-button" type="submit" [disabled]="!authForm.valid">{{title}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

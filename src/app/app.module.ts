@@ -13,6 +13,7 @@ import { ScheduleBookingComponent } from './schedule/schedule-booking/schedule-b
 import { SoonComponent } from './soon/soon.component';
 import { AboutComponent } from './about/about.component';
 import {ContactsComponent} from "./contacts/contacts.component";
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ContactsComponent} from "./contacts/contacts.component";
     ScheduleBookingComponent,
     SoonComponent,
     AboutComponent,
-    ContactsComponent
+    ContactsComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

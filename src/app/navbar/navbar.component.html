@@ -32,8 +32,16 @@
     </nav>
     <nav class="nav">
       <ul class="nav__pages">
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">SING IN</a></li>
-        <li class="nav__page nav-page"><a class="nav-page__title" href="#">SING UP</a></li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/login')"
+             [class.nav-page--active] = "router.url === '/login'">SING IN</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/register')"
+             [class.nav-page--active] = "router.url === '/register'">SING UP</a>
+        </li>
       </ul>
     </nav>
     <div class="toggle">

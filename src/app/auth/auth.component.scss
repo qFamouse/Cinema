@@ -1,0 +1,18 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/tools";
+@import "src/assets/scss/content";
+@import "src/assets/scss/form";
+
+.content__title--account {
+
+}
+
+.login {
+  max-width: 768px;
+  margin: 10px auto;
+  padding: 0 2rem;
+  @include breakpoint(md) {
+    padding: 0 6rem;
+  }
+  transition: 0.3s ease all;
+}

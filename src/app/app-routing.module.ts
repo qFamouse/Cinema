@@ -4,6 +4,7 @@ import {ScheduleComponent} from "./schedule/schedule.component";
 import {SoonComponent} from "./soon/soon.component";
 import {AboutComponent} from "./about/about.component";
 import {ContactsComponent} from "./contacts/contacts.component";
+import {AuthComponent} from "./auth/auth.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,14 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactsComponent
+  },
+  {
+    path: 'login',
+    component: AuthComponent
+  },
+  {
+    path: 'register',
+    component: AuthComponent
   }
 ];
 
