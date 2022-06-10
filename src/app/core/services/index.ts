@@ -7,3 +7,4 @@ export * from './review.service';
 export * from './seance.service';
 export * from './ticket.service';
 export * from './user.service';
+export * from  './jwt.service';

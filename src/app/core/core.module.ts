@@ -11,7 +11,8 @@ import {
   ReviewService,
   SeanceService,
   TicketService,
-  UserService
+  UserService,
+  JwtService
 } from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpTokenInterceptor} from "./interceptors";
@@ -30,7 +31,8 @@ import {HttpTokenInterceptor} from "./interceptors";
     ReviewService,
     SeanceService,
     TicketService,
-    UserService
+    UserService,
+    JwtService
   ],
   declarations: []
 })
