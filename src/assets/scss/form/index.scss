@@ -1,0 +1,55 @@
+.form {
+  // .form__item
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &_center {
+      align-items: center;
+    }
+  }
+
+  // .form__item--field
+  &__item--field { // source css https://techrocks.ru/2020/03/25/how-to-style-forms-with-css/
+    margin: 0 0 10px 0; // add top and bottom margin
+    border:0; // remove default border
+    border-bottom:1px solid #eee; // add only bottom border
+    padding:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    width:100%;
+    outline: none;
+
+    &_error {
+      background: #f3dbdf; /* Цвет фона */
+      border: 2px solid #e34761; /* Параметры рамки */
+    }
+
+    &_success {
+      background: #ddf3db; /* Цвет фона */
+      border: 2px solid #47e34a; /* Параметры рамки */
+    }
+  }
+
+  &__item--error-text {
+    color: red;
+  }
+
+  // .form__item-button
+  &__item-button {
+    /* remove default behavior */
+    appearance:none;
+    -webkit-appearance:none;
+    /* usual styles */
+    margin:10px 0; // add top and bottom margin
+    padding:10px;
+    border:none;
+    font-weight: 400;
+    background-color: $palette-primary;
+    color: $palette-white;
+    //font-weight:600;
+    border-radius:5px;
+    width: 60%;
+  }
+}
