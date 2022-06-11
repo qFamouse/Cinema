@@ -6,6 +6,7 @@ import {AboutComponent} from "./about/about.component";
 import {ContactsComponent} from "./contacts/contacts.component";
 import {AuthComponent} from "./auth/auth.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {NoAuthGuardService} from "./core/services/no-auth-guard.service";
 
 const routes: Routes = [
   {
@@ -26,11 +27,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: AuthComponent
+    component: AuthComponent,
+    canActivate: [NoAuthGuardService]
   },
   {
     path: 'register',
-    component: AuthComponent
+    component: AuthComponent,
+    canActivate: [NoAuthGuardService]
   },
   {
     path: 'profile',
