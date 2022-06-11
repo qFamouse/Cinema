@@ -40,6 +40,11 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile_edit',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 
