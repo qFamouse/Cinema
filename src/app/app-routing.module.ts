@@ -7,6 +7,7 @@ import {ContactsComponent} from "./contacts/contacts.component";
 import {AuthComponent} from "./auth/auth.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {NoAuthGuardService} from "./core/services/no-auth-guard.service";
+import {AuthGuardService} from "./core/services/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 
