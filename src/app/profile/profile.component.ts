@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   disabled: Boolean = true;
   settingsForm: FormGroup;
   isSubmitting = false;
+  avatar: any
   error: ServerError = {message: '', status: 200};
 
 
@@ -40,6 +41,11 @@ export class ProfileComponent implements OnInit {
       if (authType === 'profile_edit') {
         this.disabled = false;
       }
+
+      this.userService.getAvatar()
+        .subscribe(avatar => {
+          this.createImageFromBlob(avatar)
+        })
 
       this.user = this.userService.getCurrentUser();
       this.settingsForm.controls['login'].setValue(this.user.login);
@@ -76,8 +82,30 @@ export class ProfileComponent implements OnInit {
       );
   }
 
-  updateUser(values: Object) {
-    Object.assign(this.user, values);
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.avatar = reader.result;
+    }, false);
+
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
+
+  setAvatar(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      this.userService.setAvatar(fileList[0])
+        .subscribe(success => {
+          this.submitForm()
+        },
+          err => {
+            this.error = err;
+            this.isSubmitting = false;
+          })
+    }
   }
 
 }
