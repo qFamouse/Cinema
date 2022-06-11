@@ -16,7 +16,7 @@ $palette-profile-role-low: $x-color-tradewind;
   justify-content: center;
   align-items: center;
 
-  @include breakpoint(md) {
+  @include breakpoint(xl) {
     flex-direction: row;
   }
   &__avatar {
@@ -81,7 +81,7 @@ $palette-profile-role-low: $x-color-tradewind;
   // .profile__role--text
   &__role--text {
     text-align: center;
-    @include breakpoint(md) {
+    @include breakpoint(xl) {
       text-align: left;
     }
 
@@ -106,6 +106,7 @@ $palette-profile-role-low: $x-color-tradewind;
     width: $profile-icon-size;
     height: $profile-icon-size;
     vertical-align: sub;
+    margin-right: 0.3em;
   }
 
   // .profile__label
@@ -114,7 +115,7 @@ $palette-profile-role-low: $x-color-tradewind;
     font-family: $font-family-secondary;
     font-size: 1.6em;
 
-    @include breakpoint(md) {
+    @include breakpoint(xl) {
       display: inline;
     }
   }
@@ -127,14 +128,14 @@ $palette-profile-role-low: $x-color-tradewind;
       color: gray;
     }
 
-    @include breakpoint(md) {
+    @include breakpoint(xl) {
       &::placeholder {
         color: transparent;
       }
     }
 
 
-    @include breakpoint(md) {
+    @include breakpoint(xl) {
       display: block;
       margin-left: $profile-icon-size + $profile-margin-input;
       width: calc(100% - (28px)); // $profile-icon-size + $profile-margin-input
