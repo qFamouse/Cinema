@@ -31,6 +31,13 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
+  patch(path: string, body: Object = {}): Observable<any> {
+    return this.http.patch(
+      `${environment.api_url}${path}`,
+      JSON.stringify(body)
+    ).pipe(catchError(this.formatErrors));
+  }
+
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,
