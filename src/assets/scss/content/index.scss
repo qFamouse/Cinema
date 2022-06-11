@@ -5,11 +5,8 @@
 $palette-content-title: $x-color-masala;
 $title-font-size: 3.6em;
 
-:host {
-  flex-grow: 1;
-}
-
 .content {
+  flex-grow: 1;
   // .content__body
   &__body {
     margin: 0 auto;
