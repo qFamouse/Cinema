@@ -1,37 +1,93 @@
 <main class="content">
   <div class="content__body">
     <div class="content__header content__header_center">
-      <h1 style="background-size: 9%" class="content__title content__title_1em-4em content__title_center content__icon content__icon_account">Personal Account</h1>
+      <h1 class="content__title content__title_1em-4em content__title_center">Personal Account</h1>
     </div>
-    <div class="profile">
+    <form class="profile" [formGroup]="settingsForm" (ngSubmit)="submitForm()">
       <div class="profile__avatar">
         <img class="profile__avatar--image" src="./assets/images/profile/no-avatar.png" alt="profile image">
+        <input *ngIf="!disabled"
+               class="profile__avatar-input-file"
+               formControlName="avatar"
+               type="file"
+               name="file"
+               id="file"/>
+        <label *ngIf="!disabled" class="profile__avatar-label-file" for="file"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
       </div>
       <div class="profile__about">
         <div class="profile__item">
-          <p class="profile__role--text profile__role--text_high">Administrator</p>
+          <img class="profile__icon" src="./assets/images/profile/login.png" alt="Icon">
+          <label class="profile__label" for="login">Login: </label>
+          <input class="profile__input"
+                 formControlName="login"
+                 id="login"
+                 type="login"
+                 placeholder="Login"
+                 [attr.disabled]="disabled ? '' : null">
         </div>
         <div class="profile__item">
           <img class="profile__icon" src="./assets/images/profile/email-icon.png" alt="Icon">
           <label class="profile__label" for="email">Email: </label>
-          <Input class="profile__input" id="email" type="email" name="email" placeholder="Email" value="famouse_ru@mail.ru" disabled>
+          <input class="profile__input"
+                 formControlName="email"
+                 id="email"
+                 type="email"
+                 placeholder="Email"
+                 [attr.disabled]="disabled ? '' : null">
         </div>
         <div class="profile__item">
           <img class="profile__icon" src="./assets/images/profile/name-icon.png" alt="Icon">
           <label class="profile__label" for="name">Name: </label>
-          <Input class="profile__input" id="name" type="text" name="name" placeholder="Firstname" value="Alexander" disabled>
+          <input class="profile__input"
+                 formControlName="firstName"
+                 id="name"
+                 type="text"
+                 name="name"
+                 placeholder="Firstname"
+                 [attr.disabled]="disabled ? '' : null">
         </div>
         <div class="profile__item">
           <img class="profile__icon" src="./assets/images/profile/birthday-icon.png" alt="Icon">
           <label class="profile__label" for="birthday">Birthday: </label>
-          <Input class="profile__input" id="birthday" type="date" name="birthday" placeholder="Birthday" value="2002-01-03" disabled>
+          <input class="profile__input"
+                 formControlName="birthday"
+                 id="birthday"
+                 type="date"
+                 name="birthday"
+                 placeholder="Birthday"
+                 [attr.disabled]="disabled ? '' : null">
         </div>
         <div class="profile__item">
           <img class="profile__icon" src="./assets/images/profile/phone-icon.png" alt="Icon">
           <label class="profile__label" for="phone">Phone: </label>
-          <Input class="profile__input" id="phone" type="tel" name="birthday" placeholder="Phone" disabled>
+          <input class="profile__input"
+                 formControlName="phone"
+                 id="phone"
+                 type="tel"
+                 name="birthday"
+                 placeholder="Phone"
+                 [attr.disabled]="disabled ? '' : null">
+        </div>
+        <div class="profile__item">
+          <img class="profile__icon" src="./assets/images/profile/register-at.png" alt="Icon">
+          <label class="profile__label" for="register-at">Register date: </label>
+          <Input class="profile__input" id="register-at" type="datetime-local" name="register-at" placeholder="Phone" value="{{user.registerAt.toString().substring(0, 16)}}" disabled>
+        </div>
+        <div class="profile__item">
+          <img class="profile__icon" src="./assets/images/profile/update-at.png" alt="Icon">
+          <label class="profile__label" for="update-at">Last update date: </label>
+          <Input class="profile__input" id="update-at" type="datetime-local" name="update-at" placeholder="Phone" value="{{user.updatedAt.toString().substring(0, 16)}}" disabled>
+        </div>
+        <div class="form__item form__item--error-text form__item_center">
+          <p>{{error.message}}</p>
+        </div>
+        <div *ngIf="!disabled" class="profile__item profile__item_center">
+          <button class="profile__button" type="submit">Save</button>
+        </div>
+        <div *ngIf="disabled" class="profile__item profile__item_center">
+          <button class="profile__button" (click)="router.navigateByUrl('/profile_edit')">Edit</button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </main>
