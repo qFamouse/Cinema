@@ -76,11 +76,11 @@ export class UserService {
   // Update the user on the server (email, pass, etc)
   update(user): Observable<User> {
     return this.apiService
-      .put('/user', { user })
+      .patch('/users/update', user)
       .pipe(map(data => {
         // Update the currentUser observable
-        this.currentUserSubject.next(data.user);
-        return data.user;
+        this.currentUserSubject.next(data);
+        return data;
       }));
   }
 
