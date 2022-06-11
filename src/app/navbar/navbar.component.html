@@ -31,7 +31,7 @@
       </ul>
     </nav>
     <nav class="nav">
-      <ul class="nav__pages">
+      <ul *ngIf="!isAuth" class="nav__pages">
         <li class="nav__page nav-page">
           <a class="nav-page__title"
              (click)="router.navigateByUrl('/login')"
@@ -41,6 +41,17 @@
           <a class="nav-page__title"
              (click)="router.navigateByUrl('/register')"
              [class.nav-page--active] = "router.url === '/register'">SING UP</a>
+        </li>
+      </ul>
+      <ul *ngIf="isAuth" class="nav__pages">
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="router.navigateByUrl('/profile')"
+             [class.nav-page--active] = "router.url === '/profile'">Profile</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
+             (click)="signOut()">Sign out</a>
         </li>
       </ul>
     </nav>
