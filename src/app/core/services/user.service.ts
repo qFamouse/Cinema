@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {ApiService} from "./api.service";
 import {BehaviorSubject, distinctUntilChanged, map, Observable, ReplaySubject} from "rxjs";
 import {User} from "../models/user.model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import {JwtService} from "./jwt.service";
 
 const users : string = 'users';
@@ -93,5 +93,12 @@ export class UserService {
     return this.apiService.get(`/${users}/${slug}`);
   }
 
+  getAvatar(): Observable<Blob> {
+    return this.apiService.getImage(`/${users}/avatar/`);
+  }
+
+  setAvatar(file): Observable<any> {
+    return this.apiService.uploadFileToUrl('avatar', file, `/${users}/avatar/`);
+  }
 
 }
