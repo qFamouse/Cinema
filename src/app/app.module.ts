@@ -14,6 +14,7 @@ import { SoonComponent } from './soon/soon.component';
 import { AboutComponent } from './about/about.component';
 import {ContactsComponent} from "./contacts/contacts.component";
 import { AuthComponent } from './auth/auth.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuthComponent } from './auth/auth.component';
     AboutComponent,
     ContactsComponent,
     AuthComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

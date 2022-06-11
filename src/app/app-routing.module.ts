@@ -5,6 +5,7 @@ import {SoonComponent} from "./soon/soon.component";
 import {AboutComponent} from "./about/about.component";
 import {ContactsComponent} from "./contacts/contacts.component";
 import {AuthComponent} from "./auth/auth.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: AuthComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 
