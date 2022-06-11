@@ -28,7 +28,10 @@ export class UserService {
     if (this.jwtService.getToken()) {
       this.apiService.get('/users/user')
         .subscribe(
-          data => this.setAuth(data.user),
+          user => {
+            user.token = this.jwtService.getToken();
+            this.setAuth(user)
+          },
           err => this.purgeAuth()
         );
     } else {
