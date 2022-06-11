@@ -24,6 +24,14 @@ export class ApiService {
       .pipe(catchError(this.formatErrors));
   }
 
+  uploadFileToUrl(fileName: string, file: File, path: string): Observable<any> {
+    let formData = new FormData();
+    formData.append(fileName, file);
+
+    return this.http.post(`${environment.api_url}${path}`, formData)
+      .pipe(catchError(this.formatErrors));
+  }
+
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
       `${environment.api_url}${path}`,
