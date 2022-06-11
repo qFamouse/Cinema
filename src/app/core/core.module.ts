@@ -16,6 +16,7 @@ import {
 } from "./services";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpTokenInterceptor} from "./interceptors";
+import {NoAuthGuardService} from "./services/no-auth-guard.service";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {HttpTokenInterceptor} from "./interceptors";
     SeanceService,
     TicketService,
     UserService,
-    JwtService
+    JwtService,
+    NoAuthGuardService
   ],
   declarations: []
 })
