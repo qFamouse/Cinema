@@ -1,4 +1,4 @@
-<app-schedule-booking *ngIf="showModalBooking" (onModalClose)="handleModalOpenClose()"></app-schedule-booking>
+<app-schedule-booking *ngIf="showModalBooking" [seance]="seance" (onModalClose)="handleModalOpenClose()"></app-schedule-booking>
 <table class="seance__header">
   <tr class="seance__content">
     <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{convertDateToSeanceDate(seance.date)}}</td>
