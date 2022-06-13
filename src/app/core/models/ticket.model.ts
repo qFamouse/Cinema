@@ -7,6 +7,6 @@ export interface Ticket {
   seance: Seance,
   placeId: number,
   place: Place,
-  const: number,
+  cost: number,
   isOccupied: boolean
 }

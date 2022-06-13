@@ -4,7 +4,6 @@
     <div class="modal__content">
       <div class="booking">
         <div id="booking" class="booking">
-          <div class="booking__screen"></div>
           <table *ngIf="hall && tickets && places" class="booking__hall">
             <tr *ngFor="let row of getArrayWithSize(hall.rows)"
                 class="booking__row">
@@ -24,7 +23,21 @@
               </td>
             </tr>
           </table>
+          <div class="booking__info">
+            <table>
+              <tr class="booking__key-value">
+                <td class="booking__key-value__key">Selected seats: </td>
+                <td class="booking__key-value__value">{{selectedPlaces.length}}/{{maxSelectedSeat}}</td>
+              </tr>
+              <tr class="booking__key-value">
+                <td class="booking__key-value__key">Tickets price: </td>
+                <td class="booking__key-value__value">{{selectedCost}}</td>
+              </tr>
+            </table>
+            <button class="booking__book-button">Continue</button>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

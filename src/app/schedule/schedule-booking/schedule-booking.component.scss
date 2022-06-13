@@ -62,6 +62,69 @@ $palette-booking-vip: $x-color-tulip-tree;
       }
     }
   }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+
+  &__booking__info-text {
+
+  }
+
+  &__key-value {
+    @include font-size(1.5em, 2em, 2);
+    color: white;
+
+    &__key {
+      float: right;
+    }
+
+    &__value {
+      padding-left: 5px;
+      width: 65px;
+    }
+  }
+
+  &__book-button {
+    margin: 0;
+    padding: 0;
+
+    font-family: Verdana;
+
+    background: #3399ff;
+    color: #fff9ff;
+    @include font-size(1.5em, 2em, 2);
+    width: 50%;
+    //float: right;
+    font-weight: 600;
+    line-height: 1.25;
+    border-radius: 0.3em;
+
+    border: none;
+    outline: none;
+
+    min-height: 60px;
+
+    //height: min-content;
+    //white-space: nowrap;
+    //display: inline-flex;
+    //gap: var(--spacing-xs);
+    //justify-content: center;
+    //align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: #0080ff;
+    }
+
+
+
+    transition: color .3s ease,box-shadow .3s ease,background-color .3s ease;
+  }
+
 }
 
 

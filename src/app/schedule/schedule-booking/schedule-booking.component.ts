@@ -12,8 +12,10 @@ import {tick} from "@angular/core/testing";
   styleUrls: ['./schedule-booking.component.scss']
 })
 export class ScheduleBookingComponent implements OnInit {
+  maxSelectedSeat: number = 5;
   @Input() seance: Seance;
   selectedPlaces: Array<number> = [];
+  selectedCost: number = 0;
   tickets: Ticket[]
   hall: Hall;
   places: Place[];
@@ -46,8 +48,7 @@ export class ScheduleBookingComponent implements OnInit {
       .subscribe(tickets => {
         this.tickets = tickets;
         console.log(tickets);
-      },
-        error => {})
+      })
   }
 
   getArrayWithSize(size: number): number[] {
@@ -63,7 +64,7 @@ export class ScheduleBookingComponent implements OnInit {
   }
 
   getTicket(placeId: number): Ticket | undefined {
-    return this.tickets?.find(t => t.placeId = placeId);
+    return this.tickets?.find(t => t.placeId === placeId);
   }
 
   isOccupied(row: number, seat: number): boolean {
@@ -90,6 +91,8 @@ export class ScheduleBookingComponent implements OnInit {
 
     const place = this.getPlace(row, seat);
 
+    console.log(this.getTicket(place!.id)!.cost);
+
     if (place) {
       if (elementClassList.contains(selected))
       {
@@ -97,12 +100,18 @@ export class ScheduleBookingComponent implements OnInit {
         let selectedIndex = this.selectedPlaces.indexOf(place.id);
         if (selectedIndex >= 0) {
           this.selectedPlaces.splice(selectedIndex, 1);
+
+          this.selectedCost = Math.round((this.selectedCost - this.getTicket(place.id)!.cost) * 20) / 20;
         }
+      }
+      else if (this.selectedPlaces.length >= this.maxSelectedSeat) {
+        return;
       }
       else
       {
         this.renderer.addClass(event.target, 'booking__seat_selected');
         this.selectedPlaces.push(place.id);
+        this.selectedCost = Math.round((this.selectedCost + this.getTicket(place.id)!.cost) * 20) / 20;
       }
     }
 
