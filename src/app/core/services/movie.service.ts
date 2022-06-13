@@ -11,7 +11,23 @@ export class MovieService {
   constructor(private apiService: ApiService) {}
 
   getById(slug: any): Observable<Movie> {
-    return this.apiService.get(`/${movies}/${slug}`);
+    return this.apiService.get(`/${movies}/${slug}`)
+      .pipe(map(movie => {
+        movie.date = new Date(movie.date);
+        movie.poster = null;
+        this.getPosterById(movie.id)
+          .subscribe(poster => {
+            let reader = new FileReader();
+            reader.addEventListener("load", () => {
+              movie.poster = reader.result;
+            }, false);
+
+            if (poster) {
+              reader.readAsDataURL(poster);
+            }
+          })
+        return movie;
+      }))
   }
 
   getPosterById(slug: any): Observable<Blob> {
