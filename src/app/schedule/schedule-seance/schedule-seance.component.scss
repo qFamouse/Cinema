@@ -206,6 +206,7 @@ $palette-film-original-title: $x-color-silver-sand;
     letter-spacing:normal;
 
     &:hover {
+      cursor: pointer;
       color: $palette-primary;
       text-decoration:none;
       background-position:right -17px;
