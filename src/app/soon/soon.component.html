@@ -7,7 +7,7 @@
       <div class="soon__films">
         <div *ngFor="let movie of movies" class="soon__item">
           <div class="soon__item--poster">
-            <a href="#" class="soon__item--link">
+            <a (click)="router.navigateByUrl('/movies/'+movie.id)" class="soon__item--link">
               <img src="{{movie.poster ?? './assets/images/films/no-poster.jpg'}}" alt="soon-image" class="soon__item--image">
             </a>
             <div class="soon__item--desc">
