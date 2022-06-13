@@ -49,7 +49,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'movie/:slug',
+    path: 'movies/:slug',
     component: MovieComponent,
     resolve: {
       movie: MovieResolver
