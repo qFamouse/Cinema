@@ -10,6 +10,7 @@ export interface Movie {
   director: string,
   actors: string,
   synopsis: string,
+  youtube: string,
   startRentalDate: Date,
   endRentalDate: Date
 }
