@@ -1,36 +1,34 @@
 <app-schedule-booking *ngIf="showModalBooking" (onModalClose)="handleModalOpenClose()"></app-schedule-booking>
-<div class="seance">
-  <table class="seance__header">
-    <tr class="seance__content">
-      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{convertDateToSeanceDate(seance.date)}}</td>
-      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.title}}</td>
-      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.genre}}</td>
-      <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.ageLimit}}+</td>
-      <td class="seance-content__item">
-        <button class="seance-content__item-button" (click)="showModalBooking = showModalBooking!=true">
-          book
-        </button>
-      </td>
-    </tr>
-  </table>
-  <div *ngIf="showAboutSeance" class="film-description film-description_active">
-    <div class="film-description__poster">
-      <a class="film-description__poster-link" href="#" title="{{seance.movie.title}}">
-        <img class="film-description__poster-image" src="{{poster ?? './assets/images/films/no-poster.jpg'}}" alt="{{seance.movie.title}}">
-      </a>
-    </div>
-    <div class="film-description__content">
-      <div class="film-info">
-        <div class="film-info__hud">
-          <span class="film-info__hud-duration">{{seance.movie.duration}} min. / {{ConvertMinutesToHHmm(seance.movie.duration)}}</span>
-          <span class="film-info__hud-age-limit">{{seance.movie.ageLimit}}+</span>
-        </div>
-        <h3 class="film-info__title">{{seance.movie.title}}</h3>
-        <p class="film-info__year-country-genre">{{seance.movie.date.getFullYear()}} / {{seance.movie.country}} / {{seance.movie.genre}}</p>
-        <p class="film-info__director">Director: {{seance.movie.director}}</p>
-        <p class="film-info__actors">Actors: {{seance.movie.actors}}</p>
-        <a href="#" class="film-info__about">About film</a>
+<table class="seance__header">
+  <tr class="seance__content">
+    <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{convertDateToSeanceDate(seance.date)}}</td>
+    <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.title}}</td>
+    <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.genre}}</td>
+    <td class="seance-content__item" (click)="showAboutSeance = showAboutSeance!=true">{{seance.movie.ageLimit}}+</td>
+    <td class="seance-content__item">
+      <button class="seance-content__item-button" (click)="showModalBooking = showModalBooking!=true">
+        book
+      </button>
+    </td>
+  </tr>
+</table>
+<div *ngIf="showAboutSeance" class="film-description film-description_active">
+  <div class="film-description__poster">
+    <a class="film-description__poster-link" href="#" title="{{seance.movie.title}}">
+      <img class="film-description__poster-image" src="{{poster ?? './assets/images/films/no-poster.jpg'}}" alt="{{seance.movie.title}}">
+    </a>
+  </div>
+  <div class="film-description__content">
+    <div class="film-info">
+      <div class="film-info__hud">
+        <span class="film-info__hud-duration">{{seance.movie.duration}} min. / {{ConvertMinutesToHHmm(seance.movie.duration)}}</span>
+        <span class="film-info__hud-age-limit">{{seance.movie.ageLimit}}+</span>
       </div>
+      <h3 class="film-info__title">{{seance.movie.title}}</h3>
+      <p class="film-info__year-country-genre">{{seance.movie.date.getFullYear()}} / {{seance.movie.country}} / {{seance.movie.genre}}</p>
+      <p class="film-info__director">Director: {{seance.movie.director}}</p>
+      <p class="film-info__actors">Actors: {{seance.movie.actors}}</p>
+      <a href="#" class="film-info__about">About film</a>
     </div>
   </div>
 </div>
