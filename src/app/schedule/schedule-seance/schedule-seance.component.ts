@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Seance} from "../../core/models/seance.model";
 import {MovieService} from "../../core/services";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-schedule-seance',
@@ -15,7 +16,10 @@ export class ScheduleSeanceComponent implements OnInit {
   poster: any;
 
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
     this.movieService.getPosterById(this.seance.movie.id)

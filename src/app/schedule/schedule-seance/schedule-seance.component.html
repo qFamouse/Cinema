@@ -14,7 +14,7 @@
 </table>
 <div *ngIf="showAboutSeance" class="film-description film-description_active">
   <div class="film-description__poster">
-    <a class="film-description__poster-link" href="#" title="{{seance.movie.title}}">
+    <a class="film-description__poster-link" (click)="router.navigateByUrl('/movies/'+seance.movie.id)" title="{{seance.movie.title}}">
       <img class="film-description__poster-image" src="{{poster ?? './assets/images/films/no-poster.jpg'}}" alt="{{seance.movie.title}}">
     </a>
   </div>
