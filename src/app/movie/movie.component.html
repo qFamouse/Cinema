@@ -1,0 +1,51 @@
+<div class="content__body">
+  <div class="content__header">
+    <h1 class="content__title content__title_4em-4em content__icon content__icon_films">FILMS</h1>
+  </div>
+  <div class="film">
+    <div class="film__main">
+      <div class="film__images">
+        <div class="film__poster">
+          <img src="{{movie.poster ?? './assets/images/films/no-poster.jpg'}}" alt="Poster" class="film__poster--image">
+          <div class="film__poster--desc">
+            <div class="film__poster--duration">{{movie.duration}} min. / {{ConvertMinutesToHHmm(movie.duration)}}</div>
+            <div class="film__poster--age-limit">{{movie.ageLimit}}+</div>
+          </div>
+        </div>
+      </div>
+      <div class="film__about">
+        <h2 class="film__title film__title_english">{{movie.title}}</h2>
+        <table class="film__info">
+          <tr class="film__info--row">
+            <th class="film__info--key">Year:</th>
+            <td class="film__info--value">{{movie.date.getFullYear()}}</td>
+          </tr>
+          <tr class="film__info--row">
+            <th class="film__info--key">Country:</th>
+            <td class="film__info--value">{{movie.country}}</td>
+          </tr>
+          <tr class="film__info--row">
+            <th class="film__info--key">Director:</th>
+            <td class="film__info--value">{{movie.director}}</td>
+          </tr>
+          <tr class="film__info--row">
+            <th class="film__info--key">Genre:</th>
+            <td class="film__info--value">{{movie.genre}}</td>
+          </tr>
+          <tr class="film__info--row">
+            <th class="film__info--key">Actors:</th>
+            <td class="film__info--value">{{movie.actors}}</td>
+          </tr>
+          <tr class="film__info--row">
+            <th class="film__info--key">Rental date:</th>
+            <td class="film__info--value">from {{movie.startRentalDate}}</td>
+          </tr>
+        </table>
+        <p class="film__synopsis">{{movie.synopsis}}</p>
+        <div class="film__trailer">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kJkicjRdevE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

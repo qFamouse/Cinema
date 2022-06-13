@@ -8,6 +8,8 @@ import {AuthComponent} from "./auth/auth.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {NoAuthGuardService} from "./core/services/no-auth-guard.service";
 import {AuthGuardService} from "./core/services/auth-guard.service";
+import {MovieComponent} from "./movie/movie.component";
+import {MovieResolver} from "./movie/movie-resolver.service";
 
 const routes: Routes = [
   {
@@ -45,6 +47,13 @@ const routes: Routes = [
     path: 'profile_edit',
     component: ProfileComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'movie/:slug',
+    component: MovieComponent,
+    resolve: {
+      movie: MovieResolver
+    }
   }
 ];
 

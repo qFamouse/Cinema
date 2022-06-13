@@ -15,6 +15,8 @@ import { AboutComponent } from './about/about.component';
 import {ContactsComponent} from "./contacts/contacts.component";
 import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MovieComponent } from './movie/movie.component';
+import {MovieResolver} from "./movie/movie-resolver.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     ContactsComponent,
     AuthComponent,
     ProfileComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
