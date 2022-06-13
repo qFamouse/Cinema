@@ -6,5 +6,6 @@ export interface Ticket {
   seanceId: number,
   seance: Seance,
   placeId: number,
-  place: Place
+  place: Place,
+  const: number
 }
