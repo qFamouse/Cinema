@@ -13,4 +13,8 @@ export class HallService {
   getAll(): Observable<Hall[]> {
     return this.apiService.get(`/${halls}/`)
   }
+
+  getById(slug: any): Observable<Hall> {
+    return this.apiService.get(`/${halls}/${slug}`)
+  }
 }

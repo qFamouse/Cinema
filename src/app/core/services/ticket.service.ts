@@ -16,4 +16,8 @@ export class TicketService {
   getById(slug: any): Observable<Ticket> {
     return this.apiService.get(`/${tickets}/${slug}`);
   }
+
+  getBySeanceId(slug: any): Observable<Ticket[]> {
+    return this.apiService.get(`/${tickets}/seance/${slug}`);
+  }
 }

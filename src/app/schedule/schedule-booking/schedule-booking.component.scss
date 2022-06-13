@@ -9,6 +9,8 @@ $palette-booking-free: $x-color-dodger-blue;
 $palette-booking-vip: $x-color-tulip-tree;
 
 .booking {
+  min-width: 200px;
+  min-height: 200px;
   max-width: 768px;
   background: $palette-booking-background;
   // .booking__hall

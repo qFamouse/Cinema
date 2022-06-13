@@ -5,97 +5,23 @@
       <div class="booking">
         <div id="booking" class="booking">
           <div class="booking__screen"></div>
-          <table class="booking__hall">
-            <tr  class="booking__row">
-              <th class="booking__block">1</th>
-              <td class="booking__block booking__seat booking__seat_occupied"></td>
-              <td class="booking__block booking__seat booking__seat_selected"></td>
-              <td class="booking__block booking__seat booking__seat_vip"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-            </tr>
-            <tr class="booking__row">
-              <th class="booking__block">2</th>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-            </tr>
-            <tr class="booking__row">
-              <th class="booking__block">3</th>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-            </tr>
-            <tr class="booking__row">
-              <th class="booking__block">4</th>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-            </tr>
-            <tr class="booking__row">
-              <th class="booking__block">5</th>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-            </tr>
-            <tr class="booking__row">
-              <th class="booking__block">6</th>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
-              <td class="booking__block booking__seat"></td>
+          <table *ngIf="hall && tickets && places" class="booking__hall">
+            <tr *ngFor="let row of getArrayWithSize(hall.rows)"
+                class="booking__row">
+              <th class="booking__block">{{row}}</th>
+
+              <td *ngFor="let seat of getArrayWithSize(hall.seats)"
+                  class="booking__block"
+                  [class.booking__seat]="getPlace(row, seat)"
+                  [class.booking__seat_vip]="isVip(row, seat)"
+                  [class.booking__seat_occupied]="isOccupied(row, seat)"
+                  (click)="selectSeat($event, row, seat)"></td>
             </tr>
             <tr class="booking__row">
               <th class="booking__block"></th>
-              <td class="booking__block">1</td>
-              <td class="booking__block">2</td>
-              <td class="booking__block">3</td>
-              <td class="booking__block">4</td>
-              <td class="booking__block">5</td>
-              <td class="booking__block">6</td>
-              <td class="booking__block">7</td>
-              <td class="booking__block">8</td>
-              <td class="booking__block">9</td>
-              <td class="booking__block">10</td>
+              <td *ngFor="let seat of getArrayWithSize(hall.seats)" class="booking__block">
+                {{seat}}
+              </td>
             </tr>
           </table>
         </div>
