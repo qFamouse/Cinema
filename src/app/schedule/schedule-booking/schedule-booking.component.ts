@@ -4,7 +4,6 @@ import {BookingService, HallService, PlaceService, TicketService, UserService} f
 import {Hall} from "../../core/models/hall.model";
 import { Place } from 'src/app/core/models/place.service';
 import {Ticket} from "../../core/models/ticket.model";
-import {tick} from "@angular/core/testing";
 import {Router} from "@angular/router";
 
 @Component({
@@ -137,6 +136,8 @@ export class ScheduleBookingComponent implements OnInit {
               })
           }
         })
+
+        setTimeout(() => this.router.navigateByUrl('/tickets'), 500);
       }
     }
   }
