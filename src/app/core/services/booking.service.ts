@@ -16,4 +16,8 @@ export class BookingService {
   getById(slug: any): Observable<Booking> {
     return this.apiService.get(`/${booking}/${slug}`);
   }
+
+  book(ticketId): Observable<Booking> {
+    return this.apiService.post(`/${booking}/`, {ticketId: ticketId});
+  }
 }

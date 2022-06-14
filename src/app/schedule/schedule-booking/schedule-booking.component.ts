@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {Seance} from "../../core/models/seance.model";
-import {BookingService, HallService, PlaceService, TicketService} from "../../core/services";
+import {BookingService, HallService, PlaceService, TicketService, UserService} from "../../core/services";
 import {Hall} from "../../core/models/hall.model";
 import { Place } from 'src/app/core/models/place.service';
 import {Ticket} from "../../core/models/ticket.model";
 import {tick} from "@angular/core/testing";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-schedule-booking',
@@ -16,6 +17,7 @@ export class ScheduleBookingComponent implements OnInit {
   @Input() seance: Seance;
   selectedPlaces: Array<number> = [];
   selectedCost: number = 0;
+  isAuthenticated: boolean;
   tickets: Ticket[]
   hall: Hall;
   places: Place[];
@@ -30,10 +32,17 @@ export class ScheduleBookingComponent implements OnInit {
     private placeService: PlaceService,
     private ticketsService: TicketService,
     private bookingService: BookingService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private userService: UserService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
+    this.userService.isAuthenticated
+      .subscribe(isAuthenticated => {
+        this.isAuthenticated = isAuthenticated
+      });
+
     this.hallService.getById(this.seance.hallId)
       .subscribe(hall => {
         this.hall = hall;
@@ -47,7 +56,6 @@ export class ScheduleBookingComponent implements OnInit {
     this.ticketsService.getBySeanceId(this.seance.id)
       .subscribe(tickets => {
         this.tickets = tickets;
-        console.log(tickets);
       })
   }
 
@@ -91,8 +99,6 @@ export class ScheduleBookingComponent implements OnInit {
 
     const place = this.getPlace(row, seat);
 
-    console.log(this.getTicket(place!.id)!.cost);
-
     if (place) {
       if (elementClassList.contains(selected))
       {
@@ -114,8 +120,25 @@ export class ScheduleBookingComponent implements OnInit {
         this.selectedCost = Math.round((this.selectedCost + this.getTicket(place.id)!.cost) * 20) / 20;
       }
     }
+  }
 
-    console.log(this.selectedPlaces);
+  booking() {
+    if (!this.isAuthenticated) {
+      this.router.navigateByUrl('/register');
+    }
+    else {
+      if (this.selectedPlaces.length > 0) {
+        this.selectedPlaces.forEach(place => {
+          let ticket = this.getTicket(place);
+          if (ticket?.id) {
+            this.bookingService.book(ticket.id)
+              .subscribe(book => {
+                console.log(book);
+              })
+          }
+        })
+      }
+    }
   }
 
 }
