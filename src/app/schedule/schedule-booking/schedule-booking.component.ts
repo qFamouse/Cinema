@@ -124,7 +124,7 @@ export class ScheduleBookingComponent implements OnInit {
 
   booking() {
     if (!this.isAuthenticated) {
-      this.router.navigateByUrl('/register');
+      this.router.navigateByUrl('/login');
     }
     else {
       if (this.selectedPlaces.length > 0) {
