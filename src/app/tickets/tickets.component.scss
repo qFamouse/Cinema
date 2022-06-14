@@ -11,6 +11,7 @@ $border-color: #e5e3e5;
   border-spacing: 0;
   //box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-bottom: 10px;
 
   &__poster {
     cursor: pointer;
@@ -67,6 +68,7 @@ $border-color: #e5e3e5;
   &__value {
     font-family: Consolas, serif;
     font-weight: 600;
+    @include font-size(0.5em, 1em, 1.3);
   }
 
   &__status {
@@ -97,6 +99,33 @@ $border-color: #e5e3e5;
     vertical-align:bottom;
     padding-bottom: 15px;
     padding-right: 15px;
+  }
+
+  &__vip {
+    background: linear-gradient(to bottom, #ccad75 22%,#634f2c 24%, #b29b64 26%, #9d824b 27%,#ffecb3 40%,#3a2c0f 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    text-transform: uppercase;
+    @include font-size(1.5em, 3em);
+    margin: 0 15px 15px 0;
+    font-weight: 400;
+    float: right;
+
+    &:after {
+      background: none;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      position: absolute;
+      text-shadow:
+        -1px 0 1px #b7a04c,
+        0 1px 1px #93772e,
+        5px 5px 10px rgba(0, 0, 0, 0.4),
+        -5px -5px 10px rgba(0, 0, 0, 0.4);
+    }
   }
 
   &__cancel {

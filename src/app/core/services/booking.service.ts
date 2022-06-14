@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {ApiService} from "./api.service";
 import {Observable} from "rxjs";
-import {Booking} from "../models/booking.model";
+import {ActiveBookingTickets, Booking} from "../models/booking.model";
 
 const booking : string = 'booking';
 
@@ -19,5 +19,9 @@ export class BookingService {
 
   book(ticketId): Observable<Booking> {
     return this.apiService.post(`/${booking}/`, {ticketId: ticketId});
+  }
+
+  getActiveTickets(): Observable<ActiveBookingTickets[]> {
+    return this.apiService.get(`/${booking}/my_tickets`);
   }
 }

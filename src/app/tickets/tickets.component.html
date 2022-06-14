@@ -3,41 +3,48 @@
     <div class="content__header">
       <h1 class="content__title content__title_3em-3and5em content__icon content__icon_soon">Your tickets</h1>
     </div>
-    <table class="ticket">
-      <tr>
-        <td class="ticket__poster-container" rowspan="2">
-          <img class="ticket__poster" src="./assets/images/films/no-poster.jpg" alt="poster">
-        </td>
-        <td class="ticket__default-container border__bottom border__right">
-          <div class="ticket__title">Movie:</div>
-          <div class="ticket__value">The Man from Toronto</div>
-        </td>
-        <td class="ticket__default-container border__bottom border__right">
-          <div class="ticket__title">Cinema:</div>
-          <div class="ticket__value">Unikino, 33 Moskovsky ave</div>
-        </td>
-        <td class="ticket__default-container border__bottom border__right">
-          <div class="ticket__title">Date and time:</div>
-          <div class="ticket__value">18:00, Tw, 3 September</div>
-        </td>
-        <td class="ticket__default-container border__bottom">
-          <div class="ticket__title">Hall, row, seat</div>
-          <div class="ticket__value">Hall: THE GREAT HALL</div>
-          <div class="ticket__value">Row: 6</div>
-          <div class="ticket__value">Seat: 1</div>
-        </td>
-      </tr>
-      <tr>
-        <td class="ticket__default-container" colspan="2">
-          <div class="ticket__status">Booked</div>
-          <div class="ticket__number-title">Order (ticket) number:</div>
-          <div class="ticket__number">53048856</div>
-          <div class="ticket__title">Cost: 6$</div>
-        </td>
-        <td class="ticket__button-container" colspan="2">
-          <button class="ticket__cancel">Cancel booking</button>
-        </td>
-      </tr>
-    </table>
+    <div *ngIf="activeTickets">
+      <table *ngFor="let activeTicket of activeTickets" class="ticket">
+        <tr>
+          <td class="ticket__poster-container" rowspan="3">
+            <img class="ticket__poster" src="{{activeTicket.movie.poster ?? './assets/images/films/no-poster.jpg'}}" alt="poster">
+          </td>
+          <td class="ticket__default-container border__bottom border__right">
+            <div class="ticket__title">Movie:</div>
+            <div class="ticket__value">{{activeTicket.movie.title}}</div>
+          </td>
+          <td class="ticket__default-container border__bottom border__right">
+            <div class="ticket__title">Cinema:</div>
+            <div class="ticket__value">Unikino, 33 Moskovsky ave</div>
+          </td>
+          <td class="ticket__default-container border__bottom border__right">
+            <div class="ticket__title">Date and time:</div>
+            <div class="ticket__value">{{activeTicket.seance.date.toUTCString()}}</div>
+          </td>
+          <td class="ticket__default-container border__bottom">
+            <div class="ticket__title">Hall, row, seat</div>
+            <div class="ticket__value">Hall: {{activeTicket.hall.name}}</div>
+            <div class="ticket__value">Row: {{activeTicket.place.row}}</div>
+            <div class="ticket__value">Seat: {{activeTicket.place.seat}}</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="ticket__default-container" colspan="2" rowspan="2">
+            <div class="ticket__status">Booked</div>
+            <div class="ticket__number-title">Order (ticket) number:</div>
+            <div class="ticket__number">{{activeTicket.ticket.id}}</div>
+            <div class="ticket__value">Cost: 6$</div>
+          </td>
+          <td class="ticket__default-container" colspan="3">
+            <div *ngIf="activeTicket.place.isVip" class="ticket__vip">VIP</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="ticket__button-container" colspan="3">
+            <button class="ticket__cancel">Cancel booking</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </main>
