@@ -17,6 +17,7 @@ import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieComponent } from './movie/movie.component';
 import {MovieResolver} from "./movie/movie-resolver.service";
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MovieResolver} from "./movie/movie-resolver.service";
     AuthComponent,
     ProfileComponent,
     MovieComponent,
+    TicketsComponent,
   ],
   imports: [
     BrowserModule,

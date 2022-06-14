@@ -46,6 +46,11 @@
       <ul *ngIf="isAuth" class="nav__pages">
         <li class="nav__page nav-page">
           <a class="nav-page__title"
+             (click)="router.navigateByUrl('/tickets')"
+             [class.nav-page--active] = "router.url === '/tickets'">Tickets</a>
+        </li>
+        <li class="nav__page nav-page">
+          <a class="nav-page__title"
              (click)="router.navigateByUrl('/profile')"
              [class.nav-page--active] = "router.url === '/profile'">Profile</a>
         </li>
