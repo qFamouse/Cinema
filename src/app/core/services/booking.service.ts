@@ -24,4 +24,8 @@ export class BookingService {
   getActiveTickets(): Observable<ActiveBookingTickets[]> {
     return this.apiService.get(`/${booking}/my_tickets`);
   }
+
+  cancelBooking(slug: any): Observable<any> {
+    return this.apiService.delete(`/${booking}/${slug}`);
+  }
 }

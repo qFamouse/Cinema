@@ -41,7 +41,7 @@
         </tr>
         <tr>
           <td class="ticket__button-container" colspan="3">
-            <button class="ticket__cancel">Cancel booking</button>
+            <button (click)="cancelBooking(activeTicket.ticket.id)" class="ticket__cancel">Cancel booking</button>
           </td>
         </tr>
       </table>

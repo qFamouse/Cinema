@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BookingService, MovieService} from "../core/services";
 import {ActiveBookingTickets} from "../core/models/booking.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tickets',
@@ -19,6 +20,9 @@ export class TicketsComponent implements OnInit {
     this.bookingService.getActiveTickets()
       .subscribe(activeTickets => {
         activeTickets.forEach(ticket => {
+
+          ticket.movie.poster = null; // Fix: for some reason, false image requests are being made. This is not related to subscribe
+
           this.movieService.getPosterById(ticket.movie.id)
             .subscribe(poster => {
               let reader = new FileReader();
@@ -34,8 +38,21 @@ export class TicketsComponent implements OnInit {
           ticket.seance.date = new Date(ticket.seance.date);
         })
 
-        console.log(this.activeTickets);
         this.activeTickets = activeTickets;
       })
+  }
+
+  cancelBooking(ticketId) {
+    this.bookingService.cancelBooking(ticketId)
+      .subscribe(success => {
+        this.deleteActiveTicket(ticketId);
+      })
+  }
+
+  deleteActiveTicket(ticketId) {
+    let index = this.activeTickets.map(t => t.ticket.id).indexOf(ticketId);
+    if (index >= 0) {
+      this.activeTickets.splice(index, 1);
+    }
   }
 }
