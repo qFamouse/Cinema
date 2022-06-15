@@ -60,6 +60,10 @@ $title-font-size: 3.6em;
       background: var(--small_sprite) no-repeat 10px -65px;
     }
 
+    &_tickets {
+      background: var(--tickets) no-repeat 10px 10px;
+      background-size: 45px;
+    }
   }
 
   &__title {

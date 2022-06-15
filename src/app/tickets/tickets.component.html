@@ -1,7 +1,7 @@
 <main class="content">
   <div class="content__body">
     <div class="content__header">
-      <h1 class="content__title content__title_3em-3and5em content__icon content__icon_soon">Your tickets</h1>
+      <h1 class="content__title content__title_3em-3and5em content__icon content__icon_tickets">Your tickets</h1>
     </div>
     <div *ngIf="activeTickets">
       <table *ngFor="let activeTicket of activeTickets" class="ticket">
@@ -33,7 +33,7 @@
             <div class="ticket__status">Booked</div>
             <div class="ticket__number-title">Order (ticket) number:</div>
             <div class="ticket__number">{{activeTicket.ticket.id}}</div>
-            <div class="ticket__value">Cost: 6$</div>
+            <div class="ticket__value">Cost: {{activeTicket.ticket.cost}}$</div>
           </td>
           <td class="ticket__default-container" colspan="3">
             <div *ngIf="activeTicket.place.isVip" class="ticket__vip">VIP</div>
