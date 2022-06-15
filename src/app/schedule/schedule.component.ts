@@ -27,6 +27,7 @@ export class ScheduleComponent implements OnInit {
     let afterWeek = new Date(Date.now() + 6.048e+8);
     this.seanceService.getRepertoire(now, afterWeek).subscribe(
       halls => {
+        halls.reverse();
         this.halls = halls;
       }
     )

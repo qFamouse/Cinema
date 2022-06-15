@@ -61,5 +61,8 @@ $palette-schedule-border: $x-color-mercury;
 
   // .hall__seances
   &__seances {
+    &:last-child {
+      margin-bottom: 3em;
+    }
   }
 }
