@@ -39,7 +39,7 @@ $spacing-lg: 32px;
 }
 
 .nav {
-  z-index: 1000;
+  z-index: 500;
   flex-basis: 80%;
   top: 0;
   right: 100%;
@@ -50,7 +50,7 @@ $spacing-lg: 32px;
   align-items: center;
   text-align: center;
   background: #4e6588;
-  backdrop-filter: blur(2px);
+  //backdrop-filter: blur(2px);
   transition: 0.3s ease transform;
 
   top: 0;
