@@ -9,6 +9,7 @@ import {UserService} from "../core/services";
 })
 export class NavbarComponent implements OnInit {
   isAuth: boolean;
+  activeMobileNavbar: boolean = false;
 
   constructor(
     private router: Router,
@@ -28,5 +29,4 @@ export class NavbarComponent implements OnInit {
       this.router.navigateByUrl('/register');
     }
   }
-
 }

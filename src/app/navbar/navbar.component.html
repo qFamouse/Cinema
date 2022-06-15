@@ -1,8 +1,8 @@
 <header class="header">
   <div class="header__content">
     <h2 class="logo" routerLink="">UniKino</h2>
-    <nav class="nav">
-      <ul class="nav__pages">
+    <nav class="nav" [class.nav_mobile-active]="activeMobileNavbar" (click)="activeMobileNavbar = false">
+      <ul class="nav__pages nav__pages_main-page">
         <li class="nav__page nav-page">
           <a class="nav-page__title"
              routerLink="/about"
@@ -21,12 +21,12 @@
              routerLinkActive="nav-page--active"
              [routerLinkActiveOptions]="{exact:true}">SOON</a>
         </li>
-        <li class="nav__page nav-page">
-          <a class="nav-page__title"
-             routerLink="/movies"
-             routerLinkActive="nav-page--active"
-             [routerLinkActiveOptions]="{exact:true}">FILMS</a>
-        </li>
+<!--        <li class="nav__page nav-page">-->
+<!--          <a class="nav-page__title"-->
+<!--             routerLink="/movies"-->
+<!--             routerLinkActive="nav-page&#45;&#45;active"-->
+<!--             [routerLinkActiveOptions]="{exact:true}">FILMS</a>-->
+<!--        </li>-->
         <li class="nav__page nav-page">
           <a class="nav-page__title"
              routerLink="/contacts"
@@ -34,9 +34,7 @@
              [routerLinkActiveOptions]="{exact:true}">CONTACTS</a>
         </li>
       </ul>
-    </nav>
-    <nav class="nav">
-      <ul *ngIf="!isAuth" class="nav__pages">
+      <ul *ngIf="!isAuth" class="nav__pages nav__pages_last">
         <li class="nav__page nav-page">
           <a class="nav-page__title"
              routerLink="/login"
@@ -50,7 +48,7 @@
              [routerLinkActiveOptions]="{exact:true}">SING UP</a>
         </li>
       </ul>
-      <ul *ngIf="isAuth" class="nav__pages">
+      <ul *ngIf="isAuth" class="nav__pages nav__pages_last">
         <li class="nav__page nav-page">
           <a class="nav-page__title"
              routerLink="/tickets"
@@ -70,7 +68,7 @@
       </ul>
     </nav>
     <div class="toggle">
-      <img src="assets/images/navbar/menu-icon.svg" alt="toggle">
+      <img (click)="activeMobileNavbar = !activeMobileNavbar" src="assets/images/navbar/menu-icon.svg" alt="toggle">
     </div>
   </div>
 </header>
