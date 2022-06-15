@@ -33,7 +33,7 @@ export class ScheduleBookingComponent implements OnInit {
     private bookingService: BookingService,
     private renderer: Renderer2,
     private userService: UserService,
-    public router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {

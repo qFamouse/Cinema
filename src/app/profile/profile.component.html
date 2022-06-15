@@ -86,7 +86,7 @@
           <button class="profile__button" type="submit">Save</button>
         </div>
         <div *ngIf="disabled" class="profile__item profile__item_center">
-          <button class="profile__button" (click)="router.navigateByUrl('/profile_edit')">Edit</button>
+          <button class="profile__button" routerLink="/profile_edit">Edit</button>
         </div>
       </div>
     </form>

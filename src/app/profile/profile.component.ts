@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    public router: Router,
+    private router: Router,
     private formBuilder: FormBuilder
   ) {
     this.settingsForm = this.formBuilder.group({
@@ -66,8 +66,6 @@ export class ProfileComponent implements OnInit {
       birthday: this.settingsForm.value.birthday ?? undefined,
       phone: this.settingsForm.value.phone ?? undefined
     }
-
-    let userAvatar = this.settingsForm.value.avatar;
 
     this.userService
       .update(user)

@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   isAuth: boolean;
 
   constructor(
-    public router: Router,
+    private router: Router,
     private userService: UserService
   ) { }
 

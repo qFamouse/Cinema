@@ -14,7 +14,7 @@
 </table>
 <div *ngIf="showAboutSeance" class="film-description film-description_active">
   <div class="film-description__poster">
-    <a class="film-description__poster-link" (click)="router.navigateByUrl('/movies/'+seance.movie.id)" title="{{seance.movie.title}}">
+    <a class="film-description__poster-link" routerLink="/movies/{{seance.movie.id}}" title="{{seance.movie.title}}">
       <img class="film-description__poster-image" src="{{poster ?? './assets/images/films/no-poster.jpg'}}" alt="{{seance.movie.title}}">
     </a>
   </div>
@@ -28,7 +28,7 @@
       <p class="film-info__year-country-genre">{{seance.movie.date.getFullYear()}} / {{seance.movie.country}} / {{seance.movie.genre}}</p>
       <p class="film-info__director">Director: {{seance.movie.director}}</p>
       <p class="film-info__actors">Actors: {{seance.movie.actors}}</p>
-      <a (click)="router.navigateByUrl('/movies/'+seance.movie.id)" class="film-info__about">About film</a>
+      <a routerLink="/movies/{{seance.movie.id}}" class="film-info__about">About film</a>
     </div>
   </div>
 </div>

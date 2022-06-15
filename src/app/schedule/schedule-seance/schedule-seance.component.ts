@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Seance} from "../../core/models/seance.model";
 import {MovieService} from "../../core/services";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-schedule-seance',
@@ -18,7 +17,6 @@ export class ScheduleSeanceComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    public router: Router
   ) { }
 
   ngOnInit(): void {

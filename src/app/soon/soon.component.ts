@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MovieService} from "../core/services";
 import {Movie} from "../core/models/movies.model";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-soon',
@@ -13,7 +12,6 @@ export class SoonComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    public router: Router
   ) { }
 
   ngOnInit(): void {
