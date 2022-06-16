@@ -28,7 +28,6 @@ $border-color: #e5e3e5;
       @include breakpoint(lg) {
         display: table-cell;
       }
-
     }
     max-height: 330px;
     max-width: 250px;
@@ -40,6 +39,8 @@ $border-color: #e5e3e5;
     @include breakpoint(lg) {
       width: auto;
       height: auto;
+      min-width: 222.75px;
+      max-width: 222.75px;
     }
   }
 
